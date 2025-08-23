@@ -5,27 +5,41 @@ fetch("https://www.themealdb.com/api/json/v1/1/random.php")
   .then(data => {
     console.log(data)
     const meal = data.meals[0];
+    const ingredients = [];
+    console.log(meal.strIngredient1);
+    for(let i =1;i<=10;i++){
+      let ingredient  = meal[`strIngredient${i}`];
+      ingredients.push(ingredient);
+
+    }
+    console.log(ingredients);
+
     specialDish.innerHTML += `
-      <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
-      <h3 class="dish-name">${meal.strMeal}</h3>
-      <p class="type">${meal.strCategory}</p>
-      <p class="origin">${meal.strArea}</p>
+      <img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="cover-image" />
+      <div class="blur"></div>
+      <div class="spec-intro">
+      <h3 class="dish-name"> Name:${meal.strMeal}</h3>
+      <p class="type">Category: ${meal.strCategory}</p>
+      <p class="origin">Origin: ${meal.strArea}</p>
+      </div>
+      <div class="meal-info">
       <div class="ingredients">
         <h4>Ingredients:</h4>
-        <ul class="ingredient-list">
-          ${Object.keys(meal)
-            .filter(key => key.startsWith("strIngredient") && meal[key])
-            .map(key => `<li>${meal[key]}</li>`)
-            .join("")}
-        </ul>
+        <div class="ingredient-list">
+          ${ingredients.map(i =>{
+            return `<span>${i}</span>`
+          }).join(",")}
+        </div>
       </div>
-      <div class="process">
-        <h4>Cooking Instructions:</h4>
-        <p>${meal.strInstructions}</p>
       </div>
-    `;
-
-    // console.log(data.meals[0].strYoutube)
+          <div class="process">
+         <h4>Cooking Instructions:</h4>
+         <p>${meal.strInstructions}</p>
+       </div>
+     
+    `
+   
+    // // console.log(data.meals[0].strYoutube)
   })
   .catch("not allowed")
 // fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?tags=vegetarian%2Cdessert&number=1', {

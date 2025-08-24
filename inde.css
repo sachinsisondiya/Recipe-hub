@@ -146,7 +146,7 @@ font-size: 2rem;
   position: absolute;
     top: 53px;
     left: 500px;
-    height: 33px;
+    height: auto;
     width: 177px;
     border: 1px solid black;
     
@@ -157,4 +157,13 @@ input{
 padding:0.5em 0.3em;
 border: 1px solid black;
 
+}
+.search-result{
+  background-color: #ffffff;
+ 
+}
+.search-result p:hover{
+   cursor: pointer;
+
+  background-color: lightgray;
 }

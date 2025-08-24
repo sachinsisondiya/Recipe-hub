@@ -1,4 +1,7 @@
 const specialDish = document.getElementById("special");
+const searchBar = document.getElementById("search-bar")
+const menuBar = document.getElementById("menu-icon")
+const searchInput = document.getElementById("search-input")
 
 fetch("https://www.themealdb.com/api/json/v1/1/random.php")
   .then(res => res.json())
@@ -42,6 +45,31 @@ fetch("https://www.themealdb.com/api/json/v1/1/random.php")
     // // console.log(data.meals[0].strYoutube)
   })
   .catch("not allowed")
+
+
+document.addEventListener("click" , (e) =>{
+  e.preventDefault()
+  if(e.target.id === "search-icon"){
+    search()
+  }
+})
+function search(){
+ 
+  searchBar.style.display = "block"
+  menuBar.style.display = "none"
+  console.log(searchInput)
+  searchInput.addEventListener("input" , (e)=>{
+      let value = e.target.value
+      console.log(value)
+      fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${value}`)
+      .then(res => res.json())
+      .then(data =>{
+        console.log(data)
+      })
+  })
+  
+}
+
 // fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?tags=vegetarian%2Cdessert&number=1', {
 // 	method: 'GET',
 // 	headers: {

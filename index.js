@@ -49,11 +49,22 @@ fetch("https://www.themealdb.com/api/json/v1/1/random.php")
 
 
 document.addEventListener("click" , (e) =>{
-  e.preventDefault()
+  
   if(e.target.id === "search-icon"){
+    e.preventDefault()
     search()
   }
+  if(e.target.id === "menu-icon"){
+    e.preventDefault()
+    menuList()
+
+  }
+  
 })
+
+function menuList(){
+
+}
 function search(){
  
   searchBar.style.display = "block"
@@ -67,7 +78,7 @@ function search(){
         console.log(meal)
         if(meal){
           searchResult.innerHTML = meal.slice(0,5).map( m =>{
-            return `<p onclick="selectMeal('${m.idMeal}')">${m.strMeal}</p>`
+            return `<p class="search-result-item" onclick="selectMeal('${m.idMeal}')">${m.strMeal}</p>`
           }).join("")
         }
       })
@@ -86,6 +97,7 @@ function selectMeal(id){
       ingredients.push(ingredient);
 
     }
+    
     specialDish.innerHTML = `
       <img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="cover-image" />
       <div class="blur"></div>
@@ -109,6 +121,11 @@ function selectMeal(id){
          <p>${meal.strInstructions}</p>
        </div>
        `
+
+       searchInput.value=""
+       searchResult.innerHTML = ""
+        searchBar.style.display = "none"
+        menuBar.style.display = "block"
   })
 }
 
@@ -142,3 +159,4 @@ function selectMeal(id){
 // } catch (error) {
 // 	console.error(error);
 // }
+

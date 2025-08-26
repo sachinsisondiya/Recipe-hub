@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Recipe</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <main>
+      <form class="add-recipie" id="add-recipe-form">
+        <label for="recipe-name">Recipe Name:</label>
+        <input
+          type="text"
+          id="recipe-name"
+          name="recipe-name"
+          placeholder="eg: pizza"
+        />
+        <select class="category-select" id="category-select" required>
+          <option value="" disabled selected>--Select Category--</option>
+          <option value="Non-Vegetarian">Non-Vegetarian</option>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Dinner">Dinner</option>
+          <option value="Vegetarian">Vegetarian</option>
+          <option value="Seafood">Seafood</option>
+        </select>
+        <label for="recipe-image">Image URL:</label>
+        <input
+          type="file"
+          id="recipe-image"
+          name="recipe-image"
+          placeholder="eg: http://example.com/image.jpg"
+          name="recipe-image"
+        />
+        <label for="ingredients">Ingredients:</label>
+        <textarea
+          id="ingredients"
+          name="ingredients"
+          placeholder="List ingredients here..."
+        >
+        </textarea>
+        <label for="instructions">Instructions:</label>
+        <textarea
+          id="instructions"
+          name="instructions"
+          placeholder="List cooking instructions here..."
+          name="instructions"
+        >
+        </textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+    <script src="/add.js" type="module"></script>
+  </body>
+</html>

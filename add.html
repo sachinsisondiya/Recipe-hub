@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
+    <header>
+      <my-navbar></my-navbar>
+    </header>
     <main>
       <form class="add-recipie" id="add-recipe-form">
         <label for="recipe-name">Recipe Name:</label>
@@ -32,6 +35,7 @@
           name="recipe-image"
           placeholder="eg: http://example.com/image.jpg"
           name="recipe-image"
+          accept="image/*"
         />
         <label for="ingredients">Ingredients:</label>
         <textarea
@@ -51,6 +55,7 @@
         <button type="submit">Submit</button>
       </form>
     </main>
+    <script src="/navbar.js"></script>
     <script src="/add.js" type="module"></script>
   </body>
 </html>

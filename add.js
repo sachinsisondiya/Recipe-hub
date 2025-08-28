@@ -6,27 +6,45 @@ const form = document.getElementById('add-recipe-form')
 const recipeImage = document.getElementById('recipe-image')
 const ingredients = document.getElementById('ingredients')
 const instructions = document.getElementById('instructions')
+let img = ""
 
 const data = []
+if(recipeImage){
+recipeImage.addEventListener('change' , (e) =>{
+  const file  =e.target.files[0]
+   const reader = new FileReader()
+   reader.onload = () =>{
+     img = reader.result
+      console.log(img)
+   }
+   reader.readAsDataURL(file)
+ 
+})
+}
+
+
+
+if(form){ 
 
 form.addEventListener('submit' , (e) =>{
   e.preventDefault()
-  console.log("saadd")
-  const formData = {
+    const formData = {
     recipeName: recipeName.value,
     category: categorySelect.value,
-    recipeImage: recipeImage.files[0],
+    recipeImage: img,
     ingredients: ingredients.value,
     instructions: instructions.value
   }
-  console.log(formData)
+ 
   data.push(formData)
-  console.log(data)
+   localStorage.setItem('recipes', JSON.stringify(data))
+   form.reset()
 })
+}
 
-categorySelect.addEventListener('change',(e) =>{
-  console.log(e.target.value)
-})
+// categorySelect.addEventListener('change',(e) =>{
+//   console.log(e.target.value)
+// })
 export default data
 
 

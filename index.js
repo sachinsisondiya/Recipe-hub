@@ -1,6 +1,6 @@
 const specialDish = document.getElementById("special");
 const searchBar = document.getElementById("search-bar")
-const menuBar = document.getElementById("menu-icon")
+const menuBar = document.getElementById("menu")
 const searchInput = document.getElementById("search-input")
 const searchResult = document.getElementById("search-result")
 
@@ -16,21 +16,21 @@ fetch("https://www.themealdb.com/api/json/v1/1/random.php")
       ingredients.push(ingredient);
 
     }
-    console.log(ingredients);
+    
 
     specialDish.innerHTML += `
       <img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="cover-image" />
       <div class="blur"></div>
       <div class="spec-intro">
-      <h3 class="dish-name"> Name:${meal.strMeal}</h3>
-      <p class="type">Category: ${meal.strCategory}</p>
-      <p class="origin">Origin: ${meal.strArea}</p>
+      <h3 class="dish-name"> Name: <strong>${meal.strMeal}</strong></h3>
+      <p class="type">Category: <strong>${meal.strCategory}</strong></p>
+      <p class="origin">Origin: <strong>${meal.strArea}</strong></p>
       </div>
       <div class="meal-info">
       <div class="ingredients">
         <h4>Ingredients:</h4>
         <div class="ingredient-list">
-          ${ingredients.map(i =>{
+          ${ingredients.filter(i => i && i.trim() !== "").map(i =>{
             return `<span>${i}</span>`
           }).join(",")}
         </div>
@@ -42,29 +42,25 @@ fetch("https://www.themealdb.com/api/json/v1/1/random.php")
        </div>
      
     `
-   
-    // // console.log(data.meals[0].strYoutube)
   })
   .catch("not allowed")
 
 
 document.addEventListener("click" , (e) =>{
-  
-  if(e.target.id === "search-icon"){
-    e.preventDefault()
-    search()
-  }
-  if(e.target.id === "menu-icon"){
-    e.preventDefault()
-    menuList()
 
+  if(e.target.id === "search-icon"){
+    
+    search()
+  } 
+  if(e.target.id != "search-icon" && e.target.id != "search-input"){
+    searchBar.style.display = "none"
+    menuBar.style.display = "block"
+    searchInput.value = ""
+    searchResult.innerHTML = ""
   }
-  
 })
 
-function menuList(){
 
-}
 function search(){
  
   searchBar.style.display = "block"
@@ -99,20 +95,21 @@ function selectMeal(id){
     }
     
     specialDish.innerHTML = `
+    <h1>Let's Cook</h1>
       <img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="cover-image" />
       <div class="blur"></div>
       <div class="spec-intro">
-      <h3 class="dish-name"> Name:${meal.strMeal}</h3>
-      <p class="type">Category: ${meal.strCategory}</p>
-      <p class="origin">Origin: ${meal.strArea}</p>
+      <h3 class="dish-name"> Name: <strong>${meal.strMeal}</strong></h3>
+      <p class="type">Category: <strong>${meal.strCategory}</strong></p>
+      <p class="origin">Origin: <strong>${meal.strArea}</strong></p>
       </div>
       <div class="meal-info">
       <div class="ingredients">
         <h4>Ingredients:</h4>
         <div class="ingredient-list">
-          ${ingredients.map(i =>{
+          ${ingredients.filter(i => i && i.trim() !== "").slice(0, 5).map((i) =>{
             return `<span>${i}</span>`
-          }).join(",")}
+          }).join("")}
         </div>
       </div>
       </div>
@@ -128,35 +125,4 @@ function selectMeal(id){
         menuBar.style.display = "block"
   })
 }
-
-// fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?tags=vegetarian%2Cdessert&number=1', {
-// 	method: 'GET',
-// 	headers: {
-// 		'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
-// 		'x-rapidapi-key': '80378f0' // Replace with your actual RapidAPI key
-// 	}
-// })
-// .then(res => res.json())
-// .then(data => {
-// 	console.log(data);
-// })
-// .catch(error => {
-// 	console.error(error);
-// });
-
-// const url = '';
-// const options = {
-// 	method: 'GET',
-// 	headers: {
-// 		'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-// 	}
-// };
-
-// try {
-// 	const response = await fetch(url, options);
-// 	const result = await response.text();
-// 	console.log(result);
-// } catch (error) {
-// 	console.error(error);
-// }
 

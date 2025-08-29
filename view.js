@@ -6,10 +6,17 @@ console.log(recipes[0])
 const recipeCard = document.getElementById('recipie-card')
 
 if(recipeCard && recipes.length > 0){
- recipeCard.innerHTML +=`
-   <img src="${recipes[0].recipeImage}" alt="Recipe Image" id="recipe-image" />
-   <h2 id="recipe-title">${recipes[0].recipeName}</h2>
-   <p id="recipe-ingredients">${recipes[0].ingredients}</p>
-   <p id="recipe-description">${recipes[0].instructions}</p>
- `
+
+  recipes.map((p)=>{
+     recipeCard.innerHTML +=`
+     <div class="recipe-container">
+      <img src="${p.recipeImage}" alt="Recipe Image" id="recipe-image" class="recipe-image" />
+      <h2 id="recipe-title" class="recipe-title">${p.recipeName}</h2>
+      <p id="recipe-ingredients" class="recipe-ingredients"><span>Ingredients: </span>${p.ingredients}</p>
+      <p id="recipe-description" class="recipe-description"><span>Description: </span>${p.instructions}</p>
+    </div>
+    `
+  })
+    
+   
 }

@@ -4,26 +4,20 @@ class MyNavbar extends HTMLElement {
     <nav>
         <ul>
           <li>
-            <a href="#"
+            <a href="./index.html"
               ><img
                 class="logo"
                 id="logo"
                 src="/images/online-education.png"
                 alt="two knife tilted towards each other and a cheif hat above them"
             /></a>
-            <a class="recipe-hub" href="#">Recipe <strong>hub</strong></a>
+            <a class="recipe-hub" href="./index.html">Recipe <strong>hub</strong></a>
           </li>
-          <li class="menu">
-            <a href="#"
-              ><img
-                id="menu-icon"
-                class="icon"
-                src="/images/menu_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png"
-                alt="three horizantal line (for menu)"
-            /></a>
+          <li class="menu" id="menu">
             <div class="menu-list" id="menu-list">
-              <a href="add.html">Add Recipe</a>
-              <a href="view.html">View Recipes</a>
+            <a href="./index.html">Home</a>
+              <a href="./add.html">Add Recipe</a>
+              <a href="./view.html">View Recipes</a>
             </div>
           </li>
           <li class="search">

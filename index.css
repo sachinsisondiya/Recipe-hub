@@ -4,13 +4,15 @@
   
 }
 body{
+  font-family: "Inter", sans-serif;
   width: 100vw;
   height: 100vh;
+  background-color: #faebd736;
 }
 nav{
   background-color: antiquewhite;
   border: 1px solid black;
-  width: 100%;
+  width: 100vw;
   height: 15vh;
 
 }
@@ -41,6 +43,23 @@ li{
   margin: auto 30px auto auto;
   align-self:center;
 }
+.menu-list{
+  width: 300px;
+  padding: 1em;
+  
+  display: flex;
+  justify-content: space-between;
+  
+}
+.menu-list a{
+  text-decoration: none;
+  font-size: 1em;
+  font-family: inherit;
+  cursor: pointer;
+  color: brown;
+  font-weight: 700;
+  border-bottom: 1px solid gray;
+}
 .search{
   margin: auto 40px auto 0px;
   align-self:center;
@@ -55,21 +74,27 @@ li{
   height: 30px;
 }
 main{
-  width: 100%;
+  width: 100vw;
   height:100vh ;
 }
 .special{
   padding: 1rem;
   
-  border: 1px solid black;
   width: 100%;
-  height: 100%;
+  height: max-content;
   display: flex;
   flex-direction: column;
   position: relative;
+  background-color: aliceblue;
+ 
+
 }
 h1{
-  margin: 0px;
+  text-align: center;
+  margin: 0.5em;
+  font-family: inherit;
+  font-weight: 700;
+  color: brown;
 }
 .cover-image{ 
   width: 100%;
@@ -87,13 +112,13 @@ h1{
 }
 .blur{
   border-radius: 5px;
-  margin-top: 37px;
+   top: 87px;
   position: absolute;
   height: 500px;
-  width: 96%;
+  width: 95.5%;
   z-index: 1;
   background-color: black;
-  opacity: 0.2;
+  opacity: 0.5;
 }
 .spec-intro{
   position: absolute;
@@ -112,15 +137,26 @@ h1{
   margin:0px ;
 }
 .spec-intro h3{
-font-size: 2rem;
+font-size: 1.3rem;
+margin: 1em;
+width: auto;
+margin-bottom: 0px;
+color: #FAEBD7;
+
+}
+.special strong{
+  color: #ffffffdb
 }
 .spec-intro p{
-  font-size: 1.5rem;
+  font-size: 1rem;
+margin-left: 1em;
+width: auto;
+color: #FAEBD7
 }
 .ingredients{
-  border: 1px solid black;
+
   width: 100%;
-  margin-top: 5px;
+  margin-top: 10px;
   display: flex;
   
   
@@ -128,7 +164,9 @@ font-size: 2rem;
 .ingredient-list{
   padding-left: 3px;
   width: 100%;
-  
+  font: 1rem "Inter", sans-serif;
+  color: brown;
+  font-weight: 500;
   display: flex;
   flex-wrap: wrap;
    list-style: none;
@@ -138,9 +176,12 @@ font-size: 2rem;
  padding: 1px;
 }
 .process{
-  border: 1px solid black;
-  width: 100%;
+  line-height: 1.5;
+  width: 90%;
   margin-top: 5px;
+  height: auto;
+  margin-bottom: 10px;
+   
 }
 .search-bar{
   position: absolute;
@@ -173,10 +214,89 @@ border: 1px solid black;
 }
 /* css for add.html */
 .add-recipie{
-  width: 100vw;
-  height: 80vh;
+  border-radius: 5px;
+  padding: 1em;
+  border: 1px solid gray;
+  margin: auto;
+  margin-top: 5em;
+  
+  width: 500px;
+  height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+   background-color: aliceblue;
 }
+.add-recipie label{
+  font-size: 1.2em;
+  padding: 0px;
+  margin-bottom: -20px;
+}
+.add-recipie button{
+  padding: 0.5em 0.5em;
+  font-size: 1.2em;
+  font-family: inherit;
+  background-color: brown;
+  color: #FAEBD7;
+  font-weight: 900;
+  border: none;
+  border-radius: 5px;
+}
+.add-recipie input{
+  padding: 0.6em 0.4em;
+  font-size: 1.2rem;
+  border: 1px solid gray;
+ 
+  border-radius: 5px;
+  margin: 0px;
+  
+}
+
+/* css for recipe card */
+
+.recipe-image{
+  border-radius: 10px;
+  width:auto;
+  height:300px;
+}
+.recipe-container{
+  margin: 15px auto ;
+  padding: 1em ;
+  border-radius: 10px;
+  width: 500px;
+  height: auto;
+  background-color: aliceblue;
+  
+}
+.recipe-card{
+  border-radius: 10px;
+  margin:auto;
+  width: 600px;
+  border: 0.1px solid rgb(151, 144, 144);
+  height: 800px;
+  background-color: #FAEBD7;
+
+}
+.recipe-card  span{
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  display: block;
+  line-height: 1.5;
+}
+.recipe-card p{
+  font-size: 1.1rem;
+  
+  
+}
+.recipe-title{
+  font-weight: 400;
+  padding: 0.3em;
+  font-size:2rem;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+}
+.recipe-description{
+  margin: 10px 0px;
+}
+

@@ -227,10 +227,21 @@ border: 1px solid black;
   justify-content: space-between;
    background-color: aliceblue;
 }
+#recipie-card .no-recipes{
+  height: 500px;
+  text-align: center;
+  font-size: 50px;
+  font-family: inherit;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .add-recipie label{
   font-size: 1.2em;
   padding: 0px;
   margin-bottom: -20px;
+  color: brown;
 }
 .add-recipie button{
   padding: 0.5em 0.5em;
@@ -251,7 +262,20 @@ border: 1px solid black;
   margin: 0px;
   
 }
+.category-select{
+  font-size: 1rem;
+  padding: 1em 0.4em;
+  font-family: inherit;
+}
+.add-recipie textarea{
+  font-size: 1.2rem;
+  margin-top: 5px;
+  height: 50px;
+  resize: none;
+  padding: 0.4em 0.2em;
 
+   
+}
 /* css for recipe card */
 
 .recipe-image{
@@ -273,7 +297,7 @@ border: 1px solid black;
   margin:auto;
   width: 600px;
   border: 0.1px solid rgb(151, 144, 144);
-  height: 800px;
+  height: auto;
   background-color: #FAEBD7;
 
 }
@@ -298,5 +322,59 @@ border: 1px solid black;
 }
 .recipe-description{
   margin: 10px 0px;
+}
+
+@media  (min-width: 768px) {
+  body{
+    background-color:aliceblue;
+  }
+  .special{
+    margin: auto;
+    max-width: 1000px;
+  
+
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: 80px 1fr 60px;
+    gap: 10px;
+    grid-template-areas:
+    "head head head head head"
+    "imag imag imag imag info"
+    "imag imag imag imag proc"
+    "imag imag imag imag proc"
+    "imag imag imag imag proc";
+    
+
+  }
+  .blur{
+    display: flex;
+    border-radius: 5px;
+    top: 105px;
+    left: 17px;
+    position: absolute;
+    height: 497px;
+    width: 430px;
+    z-index: 1;
+    background-color: black;
+    opacity: 0.5;
+  }
+  .cover-image{
+    grid-area: imag;
+  }
+  .process{
+     grid-area: proc;
+  }
+  .spec-intro{
+    grid-area: intr;
+
+  }
+  .special-title{
+    grid-area: head;
+  }
+ .meal-info{
+  grid-area: info;
+
+ }
+ 
 }
 

@@ -1,9 +1,12 @@
-console.log("dasd")
+
 import data from "./add.js"
 console.log(data)
 const recipes = JSON.parse(localStorage.getItem('recipes')) || []
-console.log(recipes[0])
+console.log(recipes)
 const recipeCard = document.getElementById('recipie-card')
+if(recipes.length === 0){
+  recipeCard.innerHTML = "<p class='no-recipes'>No recipes found.</p>"
+}
 
 if(recipeCard && recipes.length > 0){
 

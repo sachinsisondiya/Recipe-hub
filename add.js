@@ -8,7 +8,7 @@ const ingredients = document.getElementById('ingredients')
 const instructions = document.getElementById('instructions')
 let img = ""
 
-const data = []
+const data = JSON.parse(localStorage.getItem('recipes')) || []
 if(recipeImage){
 recipeImage.addEventListener('change' , (e) =>{
   const file  =e.target.files[0]
@@ -36,15 +36,16 @@ form.addEventListener('submit' , (e) =>{
     instructions: instructions.value
   }
  
-  data.push(formData)
+  data.unshift(formData)
    localStorage.setItem('recipes', JSON.stringify(data))
-   form.reset()
+     
+    alert("Recipe added successfully!")
+    form.reset()
+  
 })
 }
 
-// categorySelect.addEventListener('change',(e) =>{
-//   console.log(e.target.value)
-// })
+
 export default data
 
 
